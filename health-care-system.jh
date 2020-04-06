@@ -87,7 +87,7 @@ application {
     serverPort 8085,
     serviceDiscoveryType eureka
   }
-  entities VerificationRequest, VerificationResponse
+  entities Verification
 }
 
 
