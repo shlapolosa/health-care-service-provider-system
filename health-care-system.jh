@@ -1,0 +1,163 @@
+application {
+  config {
+    baseName patientCare,
+    packageName za.co.system.provider.services.health.gateway,
+    applicationType gateway,
+    authenticationType oauth2,
+    clientFramework angularX,
+    clientPackageManager npm,
+    prodDatabaseType mysql,
+    devDatabaseType h2Memory,
+    serviceDiscoveryType eureka,
+    enableSwaggerCodegen true,
+    testFrameworks [protractor]
+  }
+  entities ReferenceData, Referal, Schedule, Patient, Prospect, Assesment
+}
+
+application {
+  config {
+    baseName referenceData,
+    packageName za.co.system.provider.services.health.service,
+    applicationType microservice,
+    authenticationType oauth2,
+    prodDatabaseType mysql,
+    devDatabaseType h2Memory,
+    enableSwaggerCodegen true,
+    serverPort 8081,
+    serviceDiscoveryType eureka
+  }
+  entities ReferenceData
+}
+
+application {
+  config {
+    baseName referal,
+    packageName za.co.system.provider.services.health.service,
+    applicationType microservice,
+    authenticationType oauth2,
+    prodDatabaseType mysql,
+    devDatabaseType h2Memory,
+    enableSwaggerCodegen true,
+    serverPort 8082,
+    serviceDiscoveryType eureka
+  }
+  entities Referal, Prospect
+}
+
+application {
+  config {
+    baseName schedule,
+    packageName za.co.system.provider.services.health.service,
+    applicationType microservice,
+    authenticationType oauth2,
+    prodDatabaseType mysql,
+    devDatabaseType h2Memory,
+    enableSwaggerCodegen true,
+    serverPort 8083,
+    serviceDiscoveryType eureka
+  }
+  entities Schedule, Assesment
+}
+
+application {
+  config {
+    baseName care,
+    packageName za.co.system.provider.services.health.service,
+    applicationType microservice,
+    authenticationType oauth2,
+    prodDatabaseType mysql,
+    devDatabaseType h2Memory,
+    enableSwaggerCodegen true,
+    serverPort 8084,
+    serviceDiscoveryType eureka
+  }
+  entities Patient
+}
+
+application {
+  config {
+    baseName verification,
+    packageName za.co.system.provider.services.health.service,
+    applicationType microservice,
+    authenticationType oauth2,
+    prodDatabaseType mysql,
+    devDatabaseType h2Memory,
+    enableSwaggerCodegen true,
+    serverPort 8085,
+    serviceDiscoveryType eureka
+  }
+  entities VerificationRequest, VerificationResponse
+}
+
+
+entity ReferenceData {
+  value String required,
+  description String required
+}
+
+entity Referal {
+  agent Long required,
+  assesment Long
+}
+
+entity Assesment {
+  type String required,
+  details String required,
+  schedule Long required
+}
+
+entity Schedule {
+  type String required,
+  date ZonedDateTime,
+  duration Duration
+}
+
+entity Patient {
+  name String required,
+  prospect Long
+}
+
+entity Prospect {
+  name String required,
+  idNumber String
+}
+
+entity Verification {
+  type String required,
+  details String required
+}
+
+
+dto Verification, ReferenceData, Referal, Schedule, Patient, Prospect, Assesment with mapstruct
+
+relationship ManyToOne {
+  Referal{user(login)} to User
+  Assesment{user(login)} to User
+}
+
+relationship OneToOne {
+  Schedule{assesment} to Assesment{schedule},
+  Referal{prospect} to Prospect{referal},
+}
+
+paginate Referal with pagination
+paginate Patient with pagination
+
+// will be created under 'docker-compose' folder
+deployment {
+  deploymentType docker-compose
+  appsFolders [patientCare, referenceData, referal, schedule, care, verification]
+  dockerRepositoryName "jmicro"
+  consoleOptions [curator, zipkin]
+  monitoring prometheus
+}
+
+deployment {
+  deploymentType kubernetes
+  appsFolders [patientCare, referenceData, referal, schedule, care, verification]
+  dockerRepositoryName "jmicro"
+  consoleOptions [curator, zipkin]
+  monitoring prometheus
+}
+
