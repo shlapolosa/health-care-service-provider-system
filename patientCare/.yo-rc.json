@@ -1,0 +1,49 @@
+{
+  "generator-jhipster": {
+    "authenticationType": "oauth2",
+    "cacheProvider": "ehcache",
+    "clientFramework": "angularX",
+    "serverPort": "8080",
+    "serviceDiscoveryType": "eureka",
+    "skipUserManagement": true,
+    "baseName": "patientCare",
+    "buildTool": "maven",
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "enableHibernateCache": true,
+    "enableSwaggerCodegen": true,
+    "enableTranslation": true,
+    "jhiPrefix": "jhi",
+    "languages": [
+      "en",
+      "fr"
+    ],
+    "messageBroker": false,
+    "nativeLanguage": "en",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "skipClient": false,
+    "testFrameworks": [
+      "protractor"
+    ],
+    "websocket": false,
+    "packageName": "za.co.system.provider.services.health.gateway",
+    "packageFolder": "za/co/system/provider/services/health/gateway",
+    "applicationType": "gateway",
+    "clientPackageManager": "npm",
+    "jhipsterVersion": "6.8.0",
+    "creationTimestamp": 1586179860159,
+    "skipServer": false,
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "useSass": true
+  },
+  "entities": [
+    "ReferenceData",
+    "Referal",
+    "Schedule",
+    "Patient",
+    "Prospect",
+    "Assesment"
+  ]
+}

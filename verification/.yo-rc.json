@@ -1,0 +1,38 @@
+{
+  "generator-jhipster": {
+    "authenticationType": "oauth2",
+    "cacheProvider": "hazelcast",
+    "serverPort": "8085",
+    "serviceDiscoveryType": "eureka",
+    "skipUserManagement": true,
+    "baseName": "verification",
+    "buildTool": "maven",
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "enableHibernateCache": true,
+    "enableSwaggerCodegen": true,
+    "enableTranslation": true,
+    "jhiPrefix": "jhi",
+    "languages": [
+      "en",
+      "fr"
+    ],
+    "messageBroker": false,
+    "nativeLanguage": "en",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "skipClient": true,
+    "testFrameworks": [],
+    "websocket": false,
+    "packageName": "za.co.system.provider.services.health.service",
+    "packageFolder": "za/co/system/provider/services/health/service",
+    "applicationType": "microservice",
+    "jhipsterVersion": "6.8.0",
+    "creationTimestamp": 1586179860159,
+    "clientPackageManager": "npm"
+  },
+  "entities": [
+    "VerificationRequest",
+    "VerificationResponse"
+  ]
+}
