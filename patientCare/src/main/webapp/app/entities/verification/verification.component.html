@@ -1,0 +1,63 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="patientCareApp.verification.home.title">Verifications</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-verification" [routerLink]="['/verification/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="patientCareApp.verification.home.createLabel">
+            Create a new Verification
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="verifications?.length === 0">
+        <span jhiTranslate="patientCareApp.verification.home.notFound">No verifications found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="verifications?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="patientCareApp.verification.type">Type</span></th>
+                    <th scope="col" ><span jhiTranslate="patientCareApp.verification.details">Details</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let verification of verifications ;trackBy: trackId">
+                    <td><a [routerLink]="['/verification', verification.id, 'view']">{{ verification.id }}</a></td>
+                    <td>{{ verification.type }}</td>
+                    <td>{{ verification.details }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/verification', verification.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/verification', verification.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(verification)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

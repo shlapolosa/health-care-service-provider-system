@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: patientcare
+  namespace: default
+  labels:
+    app: patientcare
+spec:
+  selector:
+    app: patientcare
+  type: LoadBalancer
+  ports:
+    - name: http
+      port: 8080

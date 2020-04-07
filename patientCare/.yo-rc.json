@@ -14,36 +14,29 @@
     "enableSwaggerCodegen": true,
     "enableTranslation": true,
     "jhiPrefix": "jhi",
-    "languages": [
-      "en",
-      "fr"
-    ],
+    "languages": ["en", "fr"],
     "messageBroker": false,
     "nativeLanguage": "en",
     "prodDatabaseType": "mysql",
     "searchEngine": false,
     "skipClient": false,
-    "testFrameworks": [
-      "protractor"
-    ],
+    "testFrameworks": ["protractor"],
     "websocket": false,
     "packageName": "za.co.system.provider.services.health.gateway",
     "packageFolder": "za/co/system/provider/services/health/gateway",
     "applicationType": "gateway",
     "clientPackageManager": "npm",
     "jhipsterVersion": "6.8.0",
-    "creationTimestamp": 1586179860159,
+    "creationTimestamp": 1586187900157,
     "skipServer": false,
     "clientTheme": "none",
     "clientThemeVariant": "",
-    "useSass": true
+    "useSass": true,
+    "embeddableLaunchScript": false,
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "blueprints": []
   },
-  "entities": [
-    "ReferenceData",
-    "Referal",
-    "Schedule",
-    "Patient",
-    "Prospect",
-    "Assesment"
-  ]
+  "entities": ["ReferenceData", "Referal", "Schedule", "Patient", "Prospect", "Assesment", "Verification"]
 }

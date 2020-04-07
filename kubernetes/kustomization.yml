@@ -1,0 +1,39 @@
+commonLabels:
+  app.kubernetes.io/genereted-by: JHipster
+
+resources:
+  # Individual apps
+  - patientcare/patientcare-deployment.yml
+  - patientcare/patientcare-service.yml
+  - patientcare/patientcare-mysql.yml
+  - patientcare/patientcare-prometheus-sm.yml
+  - referencedata/referencedata-deployment.yml
+  - referencedata/referencedata-service.yml
+  - referencedata/referencedata-mysql.yml
+  - referencedata/referencedata-prometheus-sm.yml
+  - referal/referal-deployment.yml
+  - referal/referal-service.yml
+  - referal/referal-mysql.yml
+  - referal/referal-prometheus-sm.yml
+  - schedule/schedule-deployment.yml
+  - schedule/schedule-service.yml
+  - schedule/schedule-mysql.yml
+  - schedule/schedule-prometheus-sm.yml
+  - care/care-deployment.yml
+  - care/care-service.yml
+  - care/care-mysql.yml
+  - care/care-prometheus-sm.yml
+  - verification/verification-deployment.yml
+  - verification/verification-service.yml
+  - verification/verification-mysql.yml
+  - verification/verification-prometheus-sm.yml
+  # monitoring prometheus
+  - monitoring/jhipster-prometheus-cr.yml
+  - monitoring/jhipster-prometheus-crd.yml
+  - monitoring/jhipster-grafana.yml
+  - monitoring/jhipster-grafana-dashboard.yml
+  # service discovery eureka/consul
+  - registry/jhipster-registry.yml
+  - registry/application-configmap.yml
+
+patchesJson6902:

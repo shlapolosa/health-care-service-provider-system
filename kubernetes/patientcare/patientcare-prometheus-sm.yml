@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: patientcare-app
+  namespace: default
+  labels:
+    team: default
+spec:
+  selector:
+    matchLabels:
+      app: patientcare
+  endpoints:
+    - port: web
+      path: /prometheusMetrics

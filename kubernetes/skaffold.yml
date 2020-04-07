@@ -1,0 +1,27 @@
+apiVersion: skaffold/v1
+kind: Config
+build:
+  artifacts:
+    - image: shlapolosa/patientcare
+      context: ../patientCare
+      jib: {}
+    - image: shlapolosa/referencedata
+      context: ../referenceData
+      jib: {}
+    - image: shlapolosa/referal
+      context: ../referal
+      jib: {}
+    - image: shlapolosa/schedule
+      context: ../schedule
+      jib: {}
+    - image: shlapolosa/care
+      context: ../care
+      jib: {}
+    - image: shlapolosa/verification
+      context: ../verification
+      jib: {}
+  tagPolicy:
+    envTemplate:
+      template: '{{.IMAGE_NAME}}:latest'
+deploy:
+  kustomize: {}

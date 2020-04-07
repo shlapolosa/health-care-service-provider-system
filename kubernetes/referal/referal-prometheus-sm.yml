@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: referal-app
+  namespace: default
+  labels:
+    team: default
+spec:
+  selector:
+    matchLabels:
+      app: referal
+  endpoints:
+    - port: web
+      path: /prometheusMetrics

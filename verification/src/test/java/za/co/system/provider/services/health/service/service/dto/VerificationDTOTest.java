@@ -1,0 +1,23 @@
+package za.co.system.provider.services.health.service.service.dto;
+
+import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
+import za.co.system.provider.services.health.service.web.rest.TestUtil;
+
+public class VerificationDTOTest {
+
+    @Test
+    public void dtoEqualsVerifier() throws Exception {
+        TestUtil.equalsVerifier(VerificationDTO.class);
+        VerificationDTO verificationDTO1 = new VerificationDTO();
+        verificationDTO1.setId(1L);
+        VerificationDTO verificationDTO2 = new VerificationDTO();
+        assertThat(verificationDTO1).isNotEqualTo(verificationDTO2);
+        verificationDTO2.setId(verificationDTO1.getId());
+        assertThat(verificationDTO1).isEqualTo(verificationDTO2);
+        verificationDTO2.setId(2L);
+        assertThat(verificationDTO1).isNotEqualTo(verificationDTO2);
+        verificationDTO1.setId(null);
+        assertThat(verificationDTO1).isNotEqualTo(verificationDTO2);
+    }
+}

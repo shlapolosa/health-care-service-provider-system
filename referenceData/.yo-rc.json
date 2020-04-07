@@ -13,10 +13,7 @@
     "enableSwaggerCodegen": true,
     "enableTranslation": true,
     "jhiPrefix": "jhi",
-    "languages": [
-      "en",
-      "fr"
-    ],
+    "languages": ["en", "fr"],
     "messageBroker": false,
     "nativeLanguage": "en",
     "prodDatabaseType": "mysql",
@@ -28,10 +25,13 @@
     "packageFolder": "za/co/system/provider/services/health/service",
     "applicationType": "microservice",
     "jhipsterVersion": "6.8.0",
-    "creationTimestamp": 1586179860159,
-    "clientPackageManager": "npm"
+    "creationTimestamp": 1586187900157,
+    "clientPackageManager": "npm",
+    "embeddableLaunchScript": false,
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "blueprints": []
   },
-  "entities": [
-    "ReferenceData"
-  ]
+  "entities": ["ReferenceData"]
 }

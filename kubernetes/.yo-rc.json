@@ -1,0 +1,19 @@
+{
+  "generator-jhipster": {
+    "deploymentType": "kubernetes",
+    "gatewayType": "zuul",
+    "monitoring": "prometheus",
+    "directoryPath": "../",
+    "appsFolders": ["patientCare", "referenceData", "referal", "schedule", "care", "verification"],
+    "clusteredDbApps": [],
+    "consoleOptions": ["curator", "zipkin"],
+    "serviceDiscoveryType": "eureka",
+    "dockerRepositoryName": "shlapolosa",
+    "dockerPushCommand": "docker push",
+    "kubernetesNamespace": "default",
+    "kubernetesServiceType": "LoadBalancer",
+    "ingressDomain": "",
+    "istio": false,
+    "jwtSecretKey": "ZGJmODQwYWUwYTU3MzQ4Zjc5NDNhYTA4Yzk4YzlmZDBjNTIyNmFlY2NlMzg2NjJiNTRhMmQ4YWM2MzFhZmFiNWRiYzE5NzA3OTIyZDE1ODA2ZDc4MTBjODllOGNmNzM3YTViMQ=="
+  }
+}

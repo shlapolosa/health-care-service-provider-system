@@ -12,7 +12,7 @@ application {
     enableSwaggerCodegen true,
     testFrameworks [protractor]
   }
-  entities ReferenceData, Referal, Schedule, Patient, Prospect, Assesment
+  entities ReferenceData, Referal, Schedule, Patient, Prospect, Assesment, Verification
 }
 
 application {
@@ -148,7 +148,7 @@ paginate Patient with pagination
 deployment {
   deploymentType docker-compose
   appsFolders [patientCare, referenceData, referal, schedule, care, verification]
-  dockerRepositoryName "jmicro"
+  dockerRepositoryName "shlapolosa"
   consoleOptions [curator, zipkin]
   monitoring prometheus
 }
@@ -156,7 +156,7 @@ deployment {
 deployment {
   deploymentType kubernetes
   appsFolders [patientCare, referenceData, referal, schedule, care, verification]
-  dockerRepositoryName "jmicro"
+  dockerRepositoryName "shlapolosa"
   consoleOptions [curator, zipkin]
   monitoring prometheus
 }

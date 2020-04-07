@@ -1,0 +1,38 @@
+{
+    "name": "Prospect",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "idNumber",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "referal",
+            "otherEntityRelationshipName": "prospect",
+            "relationshipName": "referal",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20200406144200",
+    "entityTableName": "prospect",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": [
+        "patientCare"
+    ]
+}

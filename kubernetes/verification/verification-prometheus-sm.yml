@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: verification-app
+  namespace: default
+  labels:
+    team: default
+spec:
+  selector:
+    matchLabels:
+      app: verification
+  endpoints:
+    - port: web
+      path: /prometheusMetrics
